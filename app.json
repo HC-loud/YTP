@@ -11,7 +11,7 @@
       "name": "YouTube",
       "bundleIdentifier": "com.google.ios.youtube",
       "developerName": "HC",
-      "version": "21.10.2",
+      "version": "21.10.1",
       "versionDate": "2026-03-10T20:05:44Z",
       "versionDescription": "[수정 사항]\n• Shorts 오버레이 문제 수정\n• 재생 문제 수정\n• Shorts에서 '길게 눌러 배속 재생' 제스처 문제 수정\n• 액션 바 비활성화 시 진행률 바 아래에 큰 여백이 생기는 문제 수정\n• 컬러 진행률 바 문제 수정 (이제 시청한 부분에 대해 그라데이션 색상 지원)\n• 플레이어 하단의 일부 버튼이 숨겨지지 않는 문제 수정\n• '탐색' 사이드바의 투명 배경 문제 수정\n• YouTube 메뉴 시트의 숨기기 옵션 오류 수정 및 '의견 보내기' 항목 숨기기 기능 추가\n• 선호 자막을 원본 자막으로 설정 시 라이브 영상에서 앱이 튕기는(크래시) 문제 수정\n• '반복 재생 모드 기억' 설정이 제대로 저장되지 않는 문제 수정\n\n[새로운 기능]\n• 플레이어 하단의 'Hype(기대평)' 및 '광고 중지' 버튼 숨기기 옵션 추가\n• YouTube 스낵바(플레이어 내 팝업 알림 메시지) 숨기기 옵션 추가\n• Shorts에서 제품 태그 숨기기 옵션 추가\n• Shorts에서 댓글 바 제거 옵션 추가\n• Shorts에서 오디오 버튼 제거 옵션 추가\n• 오디오 트랙 선택 시 자동 더빙된 트랙을 제외하는 옵션 추가\n• 플레이어 설정에 '화면 탭하여 탐색(건너뛰기)' 제스처 추가\n\n[UI 개선 사항]\n• YTPlus 플레이어 토스트 알림창(재생 속도, 밝기, 볼륨)에 기기 시스템 테마(다크/라이트) 지원 추가\n• YTPlus 플레이어 토스트 알림창에서 비브란시(Vibrancy, 반투명 블러) 효과 제거\n• 이제 iPad 스타일 인터페이스를 활성화하면 플로팅 키보드 기능도 함께 켜짐",
       "downloadURL": "https://github.com/diarrhea3/YTLiteDiarrhea/releases/download/ytp-72/21.10.2_YouTubePlus_5.2b4.ipa",
