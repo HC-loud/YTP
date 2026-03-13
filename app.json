@@ -1,6 +1,7 @@
 {
   "name": "YTPlus",
   "identifier": "com.github.hc-loud.ytp",
+  "website": "https://github.com/HC-loud/YTP",
   "subtitle": "YouTube Custom Source",
   "description": "자동 업데이트가 적용된 유튜브 AltStore 소스입니다.",
   "tintColor": "#FF0000",
