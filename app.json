@@ -10,14 +10,14 @@
       "name": "YouTube",
       "bundleIdentifier": "com.google.ios.youtube",
       "developerName": "HC",
-      "version": "1.0.0",
-      "versionDate": "2026-03-13T00:00:00-07:00",
+      "version": "ytp-72",
+      "versionDate": "2026-03-10T20:05:44Z",
       "versionDescription": "초기 세팅",
-      "downloadURL": "https://github.com/임시/주소/app.ipa",
+      "downloadURL": "https://github.com/diarrhea3/YTLiteDiarrhea/releases/download/ytp-72/21.10.2_YouTubePlus_5.2b4.ipa",
       "localizedDescription": "광고 없는 커스텀 유튜브 앱입니다.",
       "iconURL": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/09/YouTube_full-color_icon_%282017%29.svg/1024px-YouTube_full-color_icon_%282017%29.svg.png",
       "tintColor": "#FF0000",
-      "size": 100000000
+      "size": 126259778
     }
   ]
 }
