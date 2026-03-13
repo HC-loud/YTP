@@ -3,21 +3,39 @@ import json
 import os
 import re
 
-# 🚨 원작자의 깃허브 주소
+# 🚨 두 개의 레포지토리 주소를 설정합니다.
 TARGET_REPO = "diarrhea3/YTLiteDiarrhea"
+TWEAK_REPO = "dayanch96/YTLite"
 JSON_FILE = "app.json"
 
+def get_tweak_description(tweak_version):
+    # YTLite 원본 레포지토리의 릴리즈 목록을 가져옵니다.
+    url = f"https://api.github.com/repos/{TWEAK_REPO}/releases"
+    req = urllib.request.Request(url)
+    try:
+        with urllib.request.urlopen(req) as response:
+            releases = json.loads(response.read())
+            for release in releases:
+                # 릴리즈 제목이나 태그에 tweak_version(예: 5.2b4)이 포함되어 있는지 확인
+                if tweak_version in release.get('name', '') or tweak_version in release.get('tag_name', ''):
+                    # 찾았다면 해당 릴리즈의 설명(본문)을 반환합니다.
+                    return release.get('body', f"YTLite {tweak_version} 업데이트 내용이 없습니다.")
+    except Exception as e:
+        print("YTLite 릴리즈 정보를 가져오는데 실패했습니다:", e)
+    
+    # 만약 원본 레포에서 해당 버전을 못 찾았다면 기본 메시지를 반환합니다.
+    return f"YTLite {tweak_version} 버전이 적용되었습니다."
+
 def update_json():
-    # 1. 원작자의 최신 릴리즈 정보 가져오기
+    # 1. 메인 레포의 최신 릴리즈 정보 가져오기
     url = f"https://api.github.com/repos/{TARGET_REPO}/releases/latest"
     req = urllib.request.Request(url)
     try:
         with urllib.request.urlopen(req) as response:
             data = json.loads(response.read())
             release_date = data['published_at']
-            release_title = data['name'] # 릴리즈 제목 가져오기 (예: "21.10.2 YouTubePlus v5.2b4")
+            release_title = data['name'] # 예: "21.10.2 YouTubePlus v5.2b4"
             
-            # ipa 파일 다운로드 링크 찾기
             download_url = ""
             size = 0
             for asset in data['assets']:
@@ -33,15 +51,13 @@ def update_json():
         print("최신 릴리즈에 .ipa 파일이 없습니다.")
         return
 
-    # 🔥 핵심: 릴리즈 제목의 맨 앞에서 버전 숫자만 추출 (예: "21.10.2")
-    # 정규표현식으로 맨 앞의 숫자.숫자(.숫자) 형태를 정확히 끄집어냅니다.
+    # 🔥 앱 버전 추출 (예: "21.10.2")
     version_match = re.search(r'^v?(\d+\.\d+(?:\.\d+)?)', release_title)
-    
-    if version_match:
-        latest_version = version_match.group(1) # "21.10.2"만 성공적으로 추출
-    else:
-        # 혹시 제목 형식이 바뀌어 못 찾으면 예비로 태그 이름을 씁니다.
-        latest_version = data['tag_name'].lstrip('v') 
+    latest_version = version_match.group(1) if version_match else data['tag_name'].lstrip('v')
+
+    # 🔥 트윅 버전 추출 (예: "21.10.2 YouTubePlus v5.2b4" 에서 "5.2b4"만 추출)
+    # 제목을 띄어쓰기 기준으로 나눈 뒤, 맨 마지막 단어에서 'v'를 제거합니다.
+    tweak_version = release_title.split()[-1].lstrip('v')
 
     # 2. 내 app.json 읽기
     with open(JSON_FILE, 'r', encoding='utf-8') as f:
@@ -51,11 +67,16 @@ def update_json():
     current_version = apps_data['apps'][0]['version'].lstrip('v')
 
     if latest_version != current_version:
-        print(f"새로운 버전을 발견했습니다! : {latest_version}")
+        print(f"새로운 버전을 발견했습니다! : 앱 {latest_version} (트윅: {tweak_version})")
+        
+        # 💡 새로 추가된 기능: YTLite 원본 레포에서 설명글 가져오기
+        version_description = get_tweak_description(tweak_version)
+
         # 내 JSON 파일 업데이트
         apps_data['apps'][0]['version'] = latest_version
         apps_data['apps'][0]['versionDate'] = release_date
         apps_data['apps'][0]['downloadURL'] = download_url
+        apps_data['apps'][0]['versionDescription'] = version_description # 설명글 적용
         if size > 0:
             apps_data['apps'][0]['size'] = size
         
