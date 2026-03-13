@@ -6,6 +6,17 @@
   "description": "YouTube Plus v5.2b4 입니다.",
   "tintColor": "#FF0000",
   "iconURL": "https://raw.githubusercontent.com/HC-loud/YTP/main/YouTube.png",
+  "news": [
+    {
+      "title": "21.10.2 - YouTube",
+      "identifier": "news-21.10.2",
+      "caption": "Update of YTPlus just got released!",
+      "date": "2026-03-10T20:05:44Z",
+      "tintColor": "#FF0000",
+      "appID": "com.google.ios.youtube",
+      "notify": true
+    }
+  ],
   "apps": [
     {
       "name": "YouTube",
