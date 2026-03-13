@@ -15,7 +15,7 @@ def update_json():
         with urllib.request.urlopen(req) as response:
             data = json.loads(response.read())
             release_date = data['published_at']
-            release_title = data['name'] # 릴리즈 제목 가져오기 (예: "21.10.2 YouTubePlus v5.2b4")
+            release_title = data['name'] 
             
             # ipa 파일 다운로드 링크 및 파일명 찾기
             download_url = ""
@@ -35,17 +35,16 @@ def update_json():
         print("최신 릴리즈에 .ipa 파일이 없습니다.")
         return
 
-    # 🔥 메인 앱 버전 추출 (예: "21.10.2")
+    # 🔥 메인 앱 버전 추출
     version_match = re.search(r'(\d+\.\d+(?:\.\d+)?)', filename)
     if not version_match:
         version_match = re.search(r'(\d+\.\d+(?:\.\d+)?)', release_title)
     
     latest_version = version_match.group(1) if version_match else data['tag_name'].lstrip('v')
 
-    # 🔥 트윅 버전 추출 및 설명글 만들기
-    # 릴리즈 제목을 띄어쓰기 기준으로 나눈 뒤, 맨 마지막 단어(예: "v5.2b4")를 가져옵니다.
+    # 🔥 트윅 버전 추출 및 소스 설명글 만들기
     tweak_version = release_title.split()[-1]
-    new_description = f"YouTube Plus {tweak_version} 입니다."
+    new_source_description = f"YouTube Plus {tweak_version} 입니다."
 
     # 2. 내 app.json 읽기
     with open(JSON_FILE, 'r', encoding='utf-8') as f:
@@ -57,11 +56,13 @@ def update_json():
     if latest_version != current_version:
         print(f"새로운 버전을 발견했습니다! 앱: {latest_version}, 트윅: {tweak_version}")
         
-        # 내 JSON 파일 업데이트
+        # 내 JSON 파일 업데이트 (버전, 날짜, 다운로드 링크 갱신)
         apps_data['apps'][0]['version'] = latest_version
         apps_data['apps'][0]['versionDate'] = release_date
         apps_data['apps'][0]['downloadURL'] = download_url
-        apps_data['apps'][0]['versionDescription'] = new_description # 설명글 자동 업데이트 적용
+        
+        # 🔥 여기가 수정된 부분입니다! (개별 앱이 아닌 메인 소스의 description을 수정)
+        apps_data['description'] = new_source_description 
         
         if size > 0:
             apps_data['apps'][0]['size'] = size
