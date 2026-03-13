@@ -56,16 +56,29 @@ def update_json():
     if latest_version != current_version:
         print(f"새로운 버전을 발견했습니다! 앱: {latest_version}, 트윅: {tweak_version}")
         
-        # 내 JSON 파일 업데이트 (버전, 날짜, 다운로드 링크 갱신)
+        # 내 JSON 파일 업데이트 (앱 정보 갱신)
         apps_data['apps'][0]['version'] = latest_version
         apps_data['apps'][0]['versionDate'] = release_date
         apps_data['apps'][0]['downloadURL'] = download_url
         
-        # 🔥 여기가 수정된 부분입니다! (개별 앱이 아닌 메인 소스의 description을 수정)
+        # 메인 소스의 description 수정
         apps_data['description'] = new_source_description 
         
         if size > 0:
             apps_data['apps'][0]['size'] = size
+
+        # 🔥 News 탭 자동 업데이트 로직 추가
+        # JSON 파일이 무한히 길어지는 것을 막기 위해, 최신 뉴스 1개만 남기고 덮어씌웁니다.
+        new_news_item = {
+            "title": f"{latest_version} - YouTube",
+            "identifier": f"news-{latest_version}",
+            "caption": "Update of YTPlus just got released!",
+            "date": release_date,
+            "tintColor": "#FF0000",
+            "appID": "com.google.ios.youtube",
+            "notify": True # 푸시 알림 켜기 (파이썬의 True는 JSON의 true로 자동 변환됨)
+        }
+        apps_data['news'] = [new_news_item]
         
         # 4. 수정된 내용 저장하기
         with open(JSON_FILE, 'w', encoding='utf-8') as f:
