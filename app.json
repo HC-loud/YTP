@@ -8,10 +8,10 @@
   "iconURL": "https://raw.githubusercontent.com/HC-loud/YTP/main/YouTube.png",
   "news": [
     {
-      "title": "21.11.4 - YouTube",
-      "identifier": "news-21.11.4",
+      "title": "21.12.4 - YouTube",
+      "identifier": "news-21.12.4",
       "caption": "Update of YTPlus just got released!",
-      "date": "2026-03-17T00:30:17Z",
+      "date": "2026-03-24T21:46:09Z",
       "tintColor": "#FF0000",
       "appID": "com.google.ios.youtube",
       "notify": true
@@ -22,14 +22,14 @@
       "name": "YouTube",
       "bundleIdentifier": "com.google.ios.youtube",
       "developerName": "HC",
-      "version": "21.11.4",
-      "versionDate": "2026-03-17T00:30:17Z",
+      "version": "21.12.4",
+      "versionDate": "2026-03-24T21:46:09Z",
       "versionDescription": "[수정 사항]\n• Shorts 오버레이 문제 수정\n• 재생 문제 수정\n• Shorts에서 '길게 눌러 배속 재생' 제스처 문제 수정\n• 액션 바 비활성화 시 진행률 바 아래에 큰 여백이 생기는 문제 수정\n• 컬러 진행률 바 문제 수정 (이제 시청한 부분에 대해 그라데이션 색상 지원)\n• 플레이어 하단의 일부 버튼이 숨겨지지 않는 문제 수정\n• '탐색' 사이드바의 투명 배경 문제 수정\n• YouTube 메뉴 시트의 숨기기 옵션 오류 수정 및 '의견 보내기' 항목 숨기기 기능 추가\n• 선호 자막을 원본 자막으로 설정 시 라이브 영상에서 앱이 튕기는(크래시) 문제 수정\n• '반복 재생 모드 기억' 설정이 제대로 저장되지 않는 문제 수정\n\n[새로운 기능]\n• 플레이어 하단의 'Hype(기대평)' 및 '광고 중지' 버튼 숨기기 옵션 추가\n• YouTube 스낵바(플레이어 내 팝업 알림 메시지) 숨기기 옵션 추가\n• Shorts에서 제품 태그 숨기기 옵션 추가\n• Shorts에서 댓글 바 제거 옵션 추가\n• Shorts에서 오디오 버튼 제거 옵션 추가\n• 오디오 트랙 선택 시 자동 더빙된 트랙을 제외하는 옵션 추가\n• 플레이어 설정에 '화면 탭하여 탐색(건너뛰기)' 제스처 추가\n\n[UI 개선 사항]\n• YTPlus 플레이어 토스트 알림창(재생 속도, 밝기, 볼륨)에 기기 시스템 테마(다크/라이트) 지원 추가\n• YTPlus 플레이어 토스트 알림창에서 비브란시(Vibrancy, 반투명 블러) 효과 제거\n• 이제 iPad 스타일 인터페이스를 활성화하면 플로팅 키보드 기능도 함께 켜짐",
-      "downloadURL": "https://github.com/diarrhea3/YTLiteDiarrhea/releases/download/ytp-73/21.11.4_YouTubePlus_5.2b4.ipa",
+      "downloadURL": "https://github.com/diarrhea3/YTLiteDiarrhea/releases/download/ytp-74/21.12.4_YouTubePlus_5.2b4.ipa",
       "localizedDescription": "주요 기능\n• 비디오, 오디오(오디오 트랙 선택 포함), 썸네일, 커뮤니티 게시물 및 프로필 사진 다운로드\n• 비디오, 댓글, 게시물 정보 복사\n• 인터페이스 커스터마이징: 피드 요소 제거, 탭 순서 변경, OLED 다크 모드 활성화, Shorts 전용 모드 사용\n• 플레이어 설정: 제스처, 기본 화질, 선호하는 오디오 트랙 지정\n• 설정 저장, 불러오기 및 초기화. 캐시 수동 삭제 또는 앱 시작 시 자동 삭제\n• SponsorBlock(스폰서 차단) 기본 내장\n• 이 외에도 훨씬 더 많은 기능 제공\n\n* YouTube Plus 설정은 기존 YouTube 앱 설정에서 찾을 수 있습니다.\n* 모든 기여자는 기여자(Contributors) 섹션에, 사용된 오픈소스 라이브러리는 오픈소스 라이브러리 섹션에 명시되어 있습니다.\n\n---\n\n트윅 통합 세부 정보\n\n[YouPiP]\nPoomSmart가 개발한 트윅으로, iOS YouTube 앱 내 동영상에서 기본 화면 속 화면(PIP) 기능을 활성화합니다.\n• YouPiP 설정은 YouTube 앱 설정에서 사용할 수 있습니다. 소스 코드 및 추가 정보는 PoomSmart의 GitHub 레포지토리에 있습니다.\n\n[YTUHD]\nPoomSmart가 개발한 트윅으로, iOS YouTube 앱에서 1440p(2K) 및 2160p(4K) 고해상도 제한을 해제합니다.\n• YTUHD 설정은 YouTube 앱 설정의 '동영상 화질 환경설정'에서 사용할 수 있습니다. 소스 코드 및 추가 정보는 PoomSmart의 GitHub 레포지토리에 있습니다.\n\n[Return YouTube Dislikes]\nPoomSmart가 개발한 트윅으로, YouTube 앱에서 가려진 '싫어요' 개수를 다시 보여줍니다.\n• Return YouTube Dislikes 설정은 YouTube 앱 설정에서 사용할 수 있습니다. 소스 코드 및 추가 정보는 PoomSmart의 GitHub 레포지토리에 있습니다.\n\n[YouQuality]\nPoomSmart가 개발한 트윅으로, 동영상 플레이어 화면(오버레이)에서 직접 화질을 확인하고 빠르게 변경할 수 있게 해줍니다.\n• YouQuality는 YouTube 앱 설정의 '비디오 오버레이' 섹션에서 켤 수 있습니다. 소스 코드 및 추가 정보는 PoomSmart의 GitHub 레포지토리에 있습니다.\n\n[DontEatMyContent]\ntherealFoxster가 개발한 트윅으로, 2:1 비율의 동영상을 시청할 때 기기의 노치나 다이내믹 아일랜드가 화면을 가려버리는 것을 방지해 줍니다.\n• DontEatMyContent 설정은 YouTube 앱 설정에서 사용할 수 있습니다. 소스 코드 및 추가 정보는 therealFoxster의 GitHub 레포지토리에 있습니다.",
       "iconURL": "https://raw.githubusercontent.com/HC-loud/YTP/main/YouTube.png",
       "tintColor": "#FF0000",
-      "size": 126401534
+      "size": 126656118
     }
   ]
 }
