@@ -56,19 +56,43 @@ def update_json():
     if latest_version != current_version:
         print(f"새로운 버전을 발견했습니다! 앱: {latest_version}, 트윅: {tweak_version}")
         
-        # 내 JSON 파일 업데이트 (앱 정보 갱신)
-        apps_data['apps'][0]['version'] = latest_version
-        apps_data['apps'][0]['versionDate'] = release_date
-        apps_data['apps'][0]['downloadURL'] = download_url
+        app_root = apps_data['apps'][0]
+
+        # 🔥 [추가된 로직] 다운그레이드를 위한 과거 버전 저장
+        # 1. 덮어쓰기 전, 현재 JSON에 있는 정보를 '과거 버전'으로 백업
+        old_version_dict = {
+            "version": app_root.get('version'),
+            "date": app_root.get('versionDate'),
+            "localizedDescription": app_root.get('versionDescription', ''),
+            "downloadURL": app_root.get('downloadURL'),
+            "size": app_root.get('size', 0)
+        }
+        
+        # 2. 이번에 새로 받아온 정보를 '최신 버전'으로 생성
+        new_version_dict = {
+            "version": latest_version,
+            "date": release_date,
+            "localizedDescription": app_root.get('versionDescription', ''), # 릴리즈 노트 재사용
+            "downloadURL": download_url,
+            "size": size if size > 0 else app_root.get('size', 0)
+        }
+        
+        # 3. AltStore가 인식하는 versions 배열에 [최신버전, 과거버전] 순으로 덮어쓰기 (과거 1개만 유지됨)
+        app_root['versions'] = [new_version_dict, old_version_dict]
+
+        # ---------------------------------------------------------
+
+        # 내 JSON 파일 업데이트 (앱 정보 루트 갱신 - SideStore 등 타 스토어 하위호환용)
+        app_root['version'] = latest_version
+        app_root['versionDate'] = release_date
+        app_root['downloadURL'] = download_url
+        if size > 0:
+            app_root['size'] = size
         
         # 메인 소스의 description 수정
         apps_data['description'] = new_source_description 
         
-        if size > 0:
-            apps_data['apps'][0]['size'] = size
-
         # 🔥 News 탭 자동 업데이트 로직 추가
-        # JSON 파일이 무한히 길어지는 것을 막기 위해, 최신 뉴스 1개만 남기고 덮어씌웁니다.
         new_news_item = {
             "title": f"{latest_version} - YouTube",
             "identifier": f"news-{latest_version}",
@@ -76,14 +100,14 @@ def update_json():
             "date": release_date,
             "tintColor": "#FF0000",
             "appID": "com.google.ios.youtube",
-            "notify": True # 푸시 알림 켜기 (파이썬의 True는 JSON의 true로 자동 변환됨)
+            "notify": True
         }
         apps_data['news'] = [new_news_item]
         
         # 4. 수정된 내용 저장하기
         with open(JSON_FILE, 'w', encoding='utf-8') as f:
             json.dump(apps_data, f, indent=2, ensure_ascii=False)
-        print("app.json 업데이트 완료.")
+        print("app.json 업데이트 완료. (과거 버전 1개 유지됨)")
     else:
         print("이미 최신 버전입니다.")
 
