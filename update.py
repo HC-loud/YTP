@@ -16,6 +16,13 @@ GEMINI_API_KEY = os.environ.get("GEMINI_API_KEY", "")
 GEMINI_MODEL   = "gemini-2.0-flash"
 # ===================================================
 
+# YouMod_21.17.3_v1.0.2.ipa 형식 파싱용
+# 앞: 유튜브 버전 / 뒤: YouMod 버전
+YOUMOD_FILENAME_PATTERN = re.compile(
+    r'YouMod[_-](\d+\.\d+(?:\.\d+)?)[_-]v?(\d+\.\d+(?:\.\d+)?)\.ipa',
+    re.IGNORECASE
+)
+
 
 def fetch_json(url: str) -> dict:
     """GitHub API에서 JSON 데이터를 가져옵니다."""
@@ -31,6 +38,20 @@ def parse_version(version_str: str) -> tuple:
     """버전 문자열을 숫자 튜플로 변환합니다. (시맨틱 버전 비교용)"""
     nums = re.findall(r'\d+', version_str)
     return tuple(int(n) for n in nums)
+
+
+def parse_versions_from_filename(filename: str) -> tuple[str, str] | tuple[None, None]:
+    """
+    YouMod 파일명 형식에서 유튜브 버전과 YouMod 버전을 추출합니다.
+    예: YouMod_21.17.3_v1.0.2.ipa → ("21.17.3", "1.0.2")
+    매칭 실패 시 (None, None) 반환.
+    """
+    match = YOUMOD_FILENAME_PATTERN.search(filename)
+    if match:
+        yt_version    = match.group(1)  # 21.17.3
+        youmod_version = match.group(2) # 1.0.2
+        return yt_version, youmod_version
+    return None, None
 
 
 def translate_to_korean(text: str) -> str:
@@ -63,9 +84,7 @@ def translate_to_korean(text: str) -> str:
     )
 
     payload = json.dumps({
-        "contents": [
-            {"parts": [{"text": prompt}]}
-        ]
+        "contents": [{"parts": [{"text": prompt}]}]
     }).encode("utf-8")
 
     req = urllib.request.Request(
@@ -77,7 +96,7 @@ def translate_to_korean(text: str) -> str:
 
     try:
         with urllib.request.urlopen(req, timeout=30) as resp:
-            result = json.loads(resp.read())
+            result    = json.loads(resp.read())
             translated = result["candidates"][0]["content"]["parts"][0]["text"].strip()
             print("[번역] 완료!")
             return translated
@@ -118,21 +137,33 @@ def get_latest_release() -> dict | None:
     release_title = data.get("name", "")
     release_body  = data.get("body", "").strip()
 
-    # 앱 버전 추출 (파일명 우선, 없으면 릴리즈 제목, 없으면 태그)
-    ver_match = (
-        re.search(r'(\d+\.\d+(?:\.\d+)?)', filename) or
-        re.search(r'(\d+\.\d+(?:\.\d+)?)', release_title)
-    )
-    app_version   = ver_match.group(1) if ver_match else data["tag_name"].lstrip("v")
-    tweak_version = release_title.split()[-1] if release_title else app_version
+    print(f"[정보] IPA 파일명: {filename}")
+
+    # YouMod 전용 파일명 패턴으로 버전 추출 시도
+    yt_version, youmod_version = parse_versions_from_filename(filename)
+
+    if yt_version and youmod_version:
+        # 파일명 패턴 매칭 성공
+        app_version   = yt_version
+        tweak_version = youmod_version
+        print(f"[정보] 유튜브 버전: {app_version} / YouMod 버전: v{tweak_version}")
+    else:
+        # 파일명 패턴 매칭 실패 → 기존 범용 방식으로 폴백
+        print("[경고] 파일명 패턴 인식 실패. 범용 방식으로 버전을 추출합니다.")
+        ver_match = (
+            re.search(r'(\d+\.\d+(?:\.\d+)?)', filename) or
+            re.search(r'(\d+\.\d+(?:\.\d+)?)', release_title)
+        )
+        app_version   = ver_match.group(1) if ver_match else data["tag_name"].lstrip("v")
+        tweak_version = release_title.split()[-1] if release_title else app_version
 
     # 릴리즈 노트 한국어 번역
     translated_body     = translate_to_korean(release_body)
     version_description = format_version_description(translated_body, release_title)
 
     return {
-        "app_version":         app_version,
-        "tweak_version":       tweak_version,
+        "app_version":         app_version,    # 유튜브 버전 (예: 21.17.3)
+        "tweak_version":       tweak_version,  # YouMod 버전 (예: 1.0.2)
         "release_date":        data["published_at"],
         "release_title":       release_title,
         "version_description": version_description,
@@ -149,7 +180,8 @@ def update_json():
         sys.exit(1)
 
     latest_version = release["app_version"]
-    print(f"[정보] 최신 릴리즈: {latest_version} / 트윅: {release['tweak_version']}")
+    tweak_version  = release["tweak_version"]
+    print(f"[정보] 최신 릴리즈: YouTube {latest_version} / YouMod v{tweak_version}")
 
     try:
         with open(JSON_FILE, "r", encoding="utf-8") as f:
@@ -162,10 +194,10 @@ def update_json():
     current_version = app_root.get("version", "0.0.0").lstrip("v")
 
     if parse_version(latest_version) <= parse_version(current_version):
-        print(f"[정보] 이미 최신 버전입니다. ({current_version})")
+        print(f"[정보] 이미 최신 버전입니다. (YouTube {current_version})")
         return
 
-    print(f"[업데이트] {current_version} → {latest_version}")
+    print(f"[업데이트] YouTube {current_version} → {latest_version}")
 
     version_description = release["version_description"]
 
@@ -188,12 +220,13 @@ def update_json():
     app_root["downloadURL"]        = release["download_url"]
     app_root["size"]               = release["size"]
 
-    apps_data["description"] = f"YouTube Plus {release['tweak_version']} 입니다."
+    # 소스 설명: 유튜브 버전 + YouMod 버전 모두 표기
+    apps_data["description"] = f"YouTube {latest_version} | YouMod v{tweak_version}"
 
     apps_data["news"] = [{
         "title":      f"{latest_version} - YouTube",
         "identifier": f"news-{latest_version}",
-        "caption":    "Update of YTPlus just got released!",
+        "caption":    f"YouMod v{tweak_version} 업데이트가 출시되었습니다!",
         "date":       release["release_date"],
         "tintColor":  "#FF0000",
         "appID":      "com.google.ios.youtube",
