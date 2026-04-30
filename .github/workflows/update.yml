@@ -3,13 +3,13 @@ name: Auto Update AltStore JSON
 on:
   schedule:
     - cron: '0 0 * * *' # 매일 자정(UTC 기준)에 자동 실행
-  workflow_dispatch: # 내가 원할 때 수동으로 실행할 수 있는 버튼 추가
+  workflow_dispatch: # 수동 실행 버튼
 
 jobs:
   update-json:
     runs-on: ubuntu-latest
     permissions:
-      contents: write # 봇이 파일을 수정하고 저장할 수 있는 권한 부여
+      contents: write
 
     steps:
       - name: 내 저장소 파일 가져오기
@@ -21,6 +21,8 @@ jobs:
           python-version: '3.10'
 
       - name: 업데이트 스크립트 실행
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}  # GitHub 레포 Secrets에 등록 필요
         run: python update.py
 
       - name: 변경된 내용이 있으면 깃허브에 저장(Commit)
