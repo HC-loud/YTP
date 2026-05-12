@@ -3,15 +3,15 @@
   "identifier": "com.github.hc-loud.ytp",
   "website": "https://github.com/HC-loud/YTP",
   "subtitle": "YouTube Custom Source",
-  "description": "YouTube 21.18.4 | YouMod v1.2.3",
+  "description": "YouTube 21.19.2 | YouMod v1.3.0",
   "tintColor": "#FF0000",
   "iconURL": "https://raw.githubusercontent.com/HC-loud/YTP/main/YouTube.png",
   "news": [
     {
-      "title": "21.18.4 - YouTube",
-      "identifier": "news-21.18.4",
-      "caption": "YouMod v1.2.3 업데이트가 출시되었습니다!",
-      "date": "2026-05-04T09:31:26Z",
+      "title": "21.19.2 - YouTube",
+      "identifier": "news-21.19.2",
+      "caption": "YouMod v1.3.0 업데이트가 출시되었습니다!",
+      "date": "2026-05-11T09:04:38Z",
       "tintColor": "#FF0000",
       "appID": "com.google.ios.youtube",
       "notify": true
@@ -22,15 +22,22 @@
       "name": "YouTube",
       "bundleIdentifier": "com.google.ios.youtube",
       "developerName": "HC",
-      "version": "21.18.4",
-      "versionDate": "2026-05-04T09:31:26Z",
-      "versionDescription": "If having \"Something Went Wrong\" issues, pls refer to [this](https://pastebin.com/raw/XmY1hXSH)\r\n\r\n\r\nUpdated to YouTube v21.18.4\r\n\r\nYouMod by Tonwalter888\r\n\r\nTweaks:\r\n\r\niSponsorBlock\r\nA/B\r\nYTweaks\r\nVolumeBoostYT\r\nGonerino\r\nYouMod\r\nDontEatMyContent\r\nReturn YouTube Dislike\r\nYTUHD\r\nYouChooseQuality\r\nYouPiP\r\nYouSlider\r\nVideo Overlay\r\n\r\n*Restart after first launch to fix UI issues*",
-      "downloadURL": "https://github.com/jaydenjcpy/YouMod/releases/download/youmod-ipa9/YouMod_21.18.4_v1.2.3.ipa",
+      "version": "21.19.2",
+      "versionDate": "2026-05-11T09:04:38Z",
+      "versionDescription": "If having \"Something Went Wrong\" issues, pls refer to [this](https://pastebin.com/raw/XmY1hXSH)\r\n\r\n\r\nUpdated to YouTube v21.19.4\r\n\r\nYouMod by Tonwalter888\r\n\r\nTweaks:\r\n\r\niSponsorBlock\r\nA/B\r\nYTweaks\r\nVolumeBoostYT\r\nGonerino\r\nYouMod\r\nDontEatMyContent\r\nReturn YouTube Dislike\r\nYTUHD\r\nYouChooseQuality\r\nYouPiP\r\nYouSlider\r\nVideo Overlay\r\n\r\n*Restart after first launch to fix UI issues*",
+      "downloadURL": "https://github.com/jaydenjcpy/YouMod/releases/download/youmod-ipa-isponsorblock5/YouMod_21.19.2_v1.3.0.ipa",
       "localizedDescription": " ",
       "iconURL": "https://raw.githubusercontent.com/HC-loud/YTP/main/YouTube.png",
       "tintColor": "#FF0000",
-      "size": 124042581,
+      "size": 121852726,
       "versions": [
+        {
+          "version": "21.19.2",
+          "date": "2026-05-11T09:04:38Z",
+          "localizedDescription": "If having \"Something Went Wrong\" issues, pls refer to [this](https://pastebin.com/raw/XmY1hXSH)\r\n\r\n\r\nUpdated to YouTube v21.19.4\r\n\r\nYouMod by Tonwalter888\r\n\r\nTweaks:\r\n\r\niSponsorBlock\r\nA/B\r\nYTweaks\r\nVolumeBoostYT\r\nGonerino\r\nYouMod\r\nDontEatMyContent\r\nReturn YouTube Dislike\r\nYTUHD\r\nYouChooseQuality\r\nYouPiP\r\nYouSlider\r\nVideo Overlay\r\n\r\n*Restart after first launch to fix UI issues*",
+          "downloadURL": "https://github.com/jaydenjcpy/YouMod/releases/download/youmod-ipa-isponsorblock5/YouMod_21.19.2_v1.3.0.ipa",
+          "size": 121852726
+        },
         {
           "version": "21.18.4",
           "date": "2026-05-04T09:31:26Z",
