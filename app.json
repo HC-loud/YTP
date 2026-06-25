@@ -3,15 +3,15 @@
   "identifier": "com.github.hc-loud.ytp",
   "website": "https://github.com/HC-loud/YTP",
   "subtitle": "YouTube Custom Source",
-  "description": "YouTube 21.24.3 | YouMod v1.3.0",
+  "description": "YouTube 21.25.5 | YouMod v1.3.0",
   "tintColor": "#FF0000",
   "iconURL": "https://raw.githubusercontent.com/HC-loud/YTP/main/YouTube.png",
   "news": [
     {
-      "title": "21.24.3 - YouTube",
-      "identifier": "news-21.24.3",
+      "title": "21.25.5 - YouTube",
+      "identifier": "news-21.25.5",
       "caption": "YouMod v1.3.0 업데이트가 출시되었습니다!",
-      "date": "2026-06-15T04:31:27Z",
+      "date": "2026-06-24T13:29:28Z",
       "tintColor": "#FF0000",
       "appID": "com.google.ios.youtube",
       "notify": true
@@ -22,15 +22,22 @@
       "name": "YouTube",
       "bundleIdentifier": "com.google.ios.youtube",
       "developerName": "HC",
-      "version": "21.24.3",
-      "versionDate": "2026-06-15T04:31:27Z",
-      "versionDescription": "Updated to YT v21.24.3",
-      "downloadURL": "https://github.com/jaydenjcpy/YouMod/releases/download/youmod-ipa-isponsorblock8/YouMod_21.24.3_v1.3.0.ipa",
+      "version": "21.25.5",
+      "versionDate": "2026-06-24T13:29:28Z",
+      "versionDescription": "Updated to YT v21.25.55 with in theory, a playback fix\r\n\r\n[YTPlaybackFix repo](https://github.com/Mark02-2012/YTPlaybackFix)",
+      "downloadURL": "https://github.com/jaydenjcpy/YouMod/releases/download/youmod-ipa-isponsorblock10/YouMod_21.25.5_v1.3.0.ipa",
       "localizedDescription": " ",
       "iconURL": "https://raw.githubusercontent.com/HC-loud/YTP/main/YouTube.png",
       "tintColor": "#FF0000",
-      "size": 119970816,
+      "size": 122493007,
       "versions": [
+        {
+          "version": "21.25.5",
+          "date": "2026-06-24T13:29:28Z",
+          "localizedDescription": "Updated to YT v21.25.55 with in theory, a playback fix\r\n\r\n[YTPlaybackFix repo](https://github.com/Mark02-2012/YTPlaybackFix)",
+          "downloadURL": "https://github.com/jaydenjcpy/YouMod/releases/download/youmod-ipa-isponsorblock10/YouMod_21.25.5_v1.3.0.ipa",
+          "size": 122493007
+        },
         {
           "version": "21.24.3",
           "date": "2026-06-15T04:31:27Z",
@@ -58,13 +65,6 @@
           "localizedDescription": "If having \"Something Went Wrong\" issues, pls refer to [this](https://pastebin.com/raw/XmY1hXSH)\r\n\r\n\r\nUpdated to YouTube v21.19.4\r\n\r\nYouMod by Tonwalter888\r\n\r\nTweaks:\r\n\r\niSponsorBlock\r\nA/B\r\nYTweaks\r\nVolumeBoostYT\r\nGonerino\r\nYouMod\r\nDontEatMyContent\r\nReturn YouTube Dislike\r\nYTUHD\r\nYouChooseQuality\r\nYouPiP\r\nYouSlider\r\nVideo Overlay\r\n\r\n*Restart after first launch to fix UI issues*",
           "downloadURL": "https://github.com/jaydenjcpy/YouMod/releases/download/youmod-ipa-isponsorblock5/YouMod_21.19.2_v1.3.0.ipa",
           "size": 121852726
-        },
-        {
-          "version": "21.18.4",
-          "date": "2026-05-04T09:31:26Z",
-          "localizedDescription": "If having \"Something Went Wrong\" issues, pls refer to [this](https://pastebin.com/raw/XmY1hXSH)\r\n\r\n\r\nUpdated to YouTube v21.18.4\r\n\r\nYouMod by Tonwalter888\r\n\r\nTweaks:\r\n\r\niSponsorBlock\r\nA/B\r\nYTweaks\r\nVolumeBoostYT\r\nGonerino\r\nYouMod\r\nDontEatMyContent\r\nReturn YouTube Dislike\r\nYTUHD\r\nYouChooseQuality\r\nYouPiP\r\nYouSlider\r\nVideo Overlay\r\n\r\n*Restart after first launch to fix UI issues*",
-          "downloadURL": "https://github.com/jaydenjcpy/YouMod/releases/download/youmod-ipa9/YouMod_21.18.4_v1.2.3.ipa",
-          "size": 124042581
         }
       ]
     }
