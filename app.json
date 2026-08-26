@@ -3,15 +3,15 @@
   "identifier": "com.github.hc-loud.ytp",
   "website": "https://github.com/HC-loud/YTP",
   "subtitle": "YouTube Custom Source",
-  "description": "YouTube 21.33.6 | YouMod v2.0.0",
+  "description": "YouTube 21.34.3 | YouMod v2.0.0",
   "tintColor": "#FF0000",
   "iconURL": "https://raw.githubusercontent.com/HC-loud/YTP/main/YouTube.png",
   "news": [
     {
-      "title": "21.33.6 - YouTube",
-      "identifier": "news-21.33.6",
+      "title": "21.34.3 - YouTube",
+      "identifier": "news-21.34.3",
       "caption": "YouMod v2.0.0 업데이트가 출시되었습니다!",
-      "date": "2026-08-23T09:08:38Z",
+      "date": "2026-08-25T10:39:24Z",
       "tintColor": "#FF0000",
       "appID": "com.google.ios.youtube",
       "notify": true
@@ -22,15 +22,22 @@
       "name": "YouTube",
       "bundleIdentifier": "com.google.ios.youtube",
       "developerName": "HC",
-      "version": "21.33.6",
-      "versionDate": "2026-08-23T09:08:38Z",
-      "versionDescription": "Updated to [YouMod 2.0](https://github.com/Tonwalter888/YouMod/releases/tag/v2.0.0)\r\nUpdated to YT v21.33.6",
-      "downloadURL": "https://github.com/jaydenjcpy/YouMod/releases/download/youmod-ipa28/YouMod_21.33.6_v2.0.0.ipa",
+      "version": "21.34.3",
+      "versionDate": "2026-08-25T10:39:24Z",
+      "versionDescription": "Updated to YT v21.34.3",
+      "downloadURL": "https://github.com/jaydenjcpy/YouMod/releases/download/youmod-ipa31/YouMod_21.34.3_v2.0.0.ipa",
       "localizedDescription": " ",
       "iconURL": "https://raw.githubusercontent.com/HC-loud/YTP/main/YouTube.png",
       "tintColor": "#FF0000",
-      "size": 122092084,
+      "size": 128545201,
       "versions": [
+        {
+          "version": "21.34.3",
+          "date": "2026-08-25T10:39:24Z",
+          "localizedDescription": "Updated to YT v21.34.3",
+          "downloadURL": "https://github.com/jaydenjcpy/YouMod/releases/download/youmod-ipa31/YouMod_21.34.3_v2.0.0.ipa",
+          "size": 128545201
+        },
         {
           "version": "21.33.6",
           "date": "2026-08-23T09:08:38Z",
@@ -58,13 +65,6 @@
           "localizedDescription": "Updated to YT v21.22.4 \r\n**NOTE: IF YOU EXPERIENCE PLAYBACK ISSUES, YOU MUST LOG OUT IN ORDER TO CONTINUE USING THE MODS< AS NOT SOLUTION IS CURRENTLY FOUND**",
           "downloadURL": "https://github.com/jaydenjcpy/YouMod/releases/download/youmod-ipa-isponsorblock7/YouMod_21.22.4_v1.3.0.ipa",
           "size": 118033148
-        },
-        {
-          "version": "21.20.4",
-          "date": "2026-05-18T10:23:59Z",
-          "localizedDescription": "Updated to YT v21.20.4",
-          "downloadURL": "https://github.com/jaydenjcpy/YouMod/releases/download/youmod-ipa-isponsorblock6/YouMod_21.20.4_v1.3.0.ipa",
-          "size": 117552790
         }
       ]
     }
