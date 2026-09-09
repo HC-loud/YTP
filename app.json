@@ -3,15 +3,15 @@
   "identifier": "com.github.hc-loud.ytp",
   "website": "https://github.com/HC-loud/YTP",
   "subtitle": "YouTube Custom Source",
-  "description": "YouTube 21.35.3 | YouMod v2.0",
+  "description": "YouTube 21.36.6 | YouMod v2.0.0",
   "tintColor": "#FF0000",
   "iconURL": "https://raw.githubusercontent.com/HC-loud/YTP/main/YouTube.png",
   "news": [
     {
-      "title": "21.35.3 - YouTube",
-      "identifier": "news-21.35.3",
-      "caption": "YouMod v2.0 업데이트가 출시되었습니다!",
-      "date": "2026-08-30T17:01:45Z",
+      "title": "21.36.6 - YouTube",
+      "identifier": "news-21.36.6",
+      "caption": "YouMod v2.0.0 업데이트가 출시되었습니다!",
+      "date": "2026-09-08T14:45:11Z",
       "tintColor": "#FF0000",
       "appID": "com.google.ios.youtube",
       "notify": true
@@ -22,15 +22,22 @@
       "name": "YouTube",
       "bundleIdentifier": "com.google.ios.youtube",
       "developerName": "HC",
-      "version": "21.35.3",
-      "versionDate": "2026-08-30T17:01:45Z",
-      "versionDescription": "Updated YT ver\r\n\r\nFrom this version of YT, iOS 16 is no longer suppported",
-      "downloadURL": "https://github.com/jaydenjcpy/YouMod/releases/download/youmod-ipa32/YouMod_21.35.3_v2.0.ipa",
+      "version": "21.36.6",
+      "versionDate": "2026-09-08T14:45:11Z",
+      "versionDescription": "Updated YT ver.",
+      "downloadURL": "https://github.com/jaydenjcpy/YouMod/releases/download/youmod-ipa34/YouMod_21.36.6_v2.0.0.ipa",
       "localizedDescription": " ",
       "iconURL": "https://raw.githubusercontent.com/HC-loud/YTP/main/YouTube.png",
       "tintColor": "#FF0000",
-      "size": 129008054,
+      "size": 124398773,
       "versions": [
+        {
+          "version": "21.36.6",
+          "date": "2026-09-08T14:45:11Z",
+          "localizedDescription": "Updated YT ver.",
+          "downloadURL": "https://github.com/jaydenjcpy/YouMod/releases/download/youmod-ipa34/YouMod_21.36.6_v2.0.0.ipa",
+          "size": 124398773
+        },
         {
           "version": "21.35.3",
           "date": "2026-08-30T17:01:45Z",
@@ -58,13 +65,6 @@
           "localizedDescription": "Updated to YT v21.25.55 with in theory, a playback fix\r\n\r\n[YTPlaybackFix repo](https://github.com/Mark02-2012/YTPlaybackFix)",
           "downloadURL": "https://github.com/jaydenjcpy/YouMod/releases/download/youmod-ipa-isponsorblock10/YouMod_21.25.5_v1.3.0.ipa",
           "size": 122493007
-        },
-        {
-          "version": "21.24.3",
-          "date": "2026-06-15T04:31:27Z",
-          "localizedDescription": "Updated to YT v21.24.3",
-          "downloadURL": "https://github.com/jaydenjcpy/YouMod/releases/download/youmod-ipa-isponsorblock8/YouMod_21.24.3_v1.3.0.ipa",
-          "size": 119970816
         }
       ]
     }
